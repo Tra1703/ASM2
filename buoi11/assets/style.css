@@ -1,0 +1,125 @@
+/* Định dạng chung cho bảng */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Định dạng cho tiêu đề của bảng */
+thead {
+    background-color: #4f46e5;
+    color: #fff;
+}
+
+/* Định dạng cho các ô trong bảng */
+th, td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+/* Định dạng cho hàng chẵn và lẻ để dễ nhìn hơn */
+tbody tr:nth-child(even) {
+    background-color: #f3f4f6;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* Thêm hiệu ứng hover cho hàng */
+tbody tr:hover {
+    background-color: #e0e7ff;
+    cursor: pointer;
+}
+
+/* Định dạng viền của bảng */
+th, td {
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Định dạng cho caption nếu có */
+caption {
+    padding: 12px;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+/* Responsive cho bảng trên thiết bị nhỏ */
+@media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    th, td {
+        padding: 10px;
+    }
+    thead tr {
+        display: none;
+    }
+    tr {
+        margin-bottom: 15px;
+        border-bottom: 2px solid #e5e7eb;
+    }
+    td {
+        text-align: right;
+        position: relative;
+        padding-left: 50%;
+    }
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Định dạng tổng thể của phân trang */
+.pagination {
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* Định dạng từng mục trang */
+.pagination li {
+    display: inline-block;
+}
+
+/* Định dạng liên kết trong phân trang */
+.pagination li a {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #007bff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Khi di chuột vào */
+.pagination li a:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Định dạng trang hiện tại */
+.pagination li.active a {
+    background-color: #0056b3;
+    color: white;
+    font-weight: bold;
+    pointer-events: none;
+}
+
+/* Vô hiệu hóa nút (ví dụ: nút "Trước" khi ở trang đầu) */
+.pagination li.disabled a {
+    color: #ccc;
+    pointer-events: none;
+    border-color: #eee;
+}
